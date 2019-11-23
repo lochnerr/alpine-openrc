@@ -1,4 +1,4 @@
-FROM alpine:3.10
+FROM alpine:latest
 
 LABEL MAINTAINER Richard Lochner, Clone Research Corp. <lochner@clone1.com> \
       org.label-schema.name = "alpine-openrc" \
