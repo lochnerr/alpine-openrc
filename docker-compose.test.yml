@@ -12,6 +12,8 @@ services:
     command: /usr/local/bin/openrc-sut
     volumes:
       - openrc:/var/log/openrc-sut
+    depends_on:
+      - openrc
 
 volumes:
   openrc:

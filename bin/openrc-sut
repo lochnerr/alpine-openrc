@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# Give the main process a little time to start.
+sleep 5s
+
 # Wait up to 1 minute for UAT service to execute.
 for try in $(seq -s ' ' 1 4) ; do
   if [ -e /var/log/openrc-sut/startup.log ]; then
