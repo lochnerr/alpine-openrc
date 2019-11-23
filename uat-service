@@ -1,0 +1,17 @@
+#!/sbin/openrc-run
+
+# OpenRC User Acceptance Test Service for Container UAT.
+  
+name=$RC_SVCNAME
+command_background="true"
+
+start() {
+	ebegin "Starting $RC_SVCNAME"
+	# if the test directory does not exist, don't do anything.
+	if [ -d /var/log/openrc-sut ]; then
+		echo "$(date '+%y-%m-%d %H:%M:%S') Starting $RC_SVCNAME service." >>/var/log/openrc-sut/startup.log
+		/bin/sleep 5s
+	fi
+	eend $?
+}
+

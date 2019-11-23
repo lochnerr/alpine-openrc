@@ -1,0 +1,18 @@
+version: "3.2"
+
+# Alpine OpenRC container automated test compose file.
+
+services:
+  openrc:
+    image: lochnerr/alpine-openrc:latest
+    volumes:
+      - openrc:/var/log/openrc-sut
+  sut:
+    image: lochnerr/alpine-openrc:latest
+    command: /usr/local/bin/openrc-sut
+    volumes:
+      - openrc:/var/log/openrc-sut
+
+volumes:
+  openrc:
+

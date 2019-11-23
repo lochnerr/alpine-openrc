@@ -1,0 +1,15 @@
+#!/bin/sh
+
+# Wait up to 1 minute for UAT service to execute.
+for try in $(seq -s ' ' 1 4) ; do
+  if [ -e /var/log/openrc-sut/startup.log ]; then
+    echo "OpenRC test succeeded!"
+    exit 0
+  fi
+  sleep 15;
+done
+
+# The file did not get created!
+echo "OpenRC test failed!"
+exit 1
+
